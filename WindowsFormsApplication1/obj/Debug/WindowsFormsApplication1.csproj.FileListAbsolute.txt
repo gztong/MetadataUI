@@ -1,0 +1,9 @@
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\ANSYSDev\XMLTool\MetadataUI\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
