@@ -342,20 +342,43 @@ namespace WindowsFormsApplication1
 
         private void OK_Click(object sender, EventArgs e)
         {
+
+            if (meta == null) return;
+        //    Dictionary<string, List<string>> newDict = new Dictionary<string, List<string>>();
+
             for (int i = 1; i < dataGridView1.Columns.Count; i++) {
-                
+            //    List<string> list = new List<string>();
                 string key = dataGridView1.Columns[i].HeaderText;
 
                 if ( key == null || key == string.Empty) continue;
+
                 for (int j = 0; j < dataGridView1.Rows.Count; j++) {
                     string value = (string)dataGridView1.Rows[j].Cells[i].Value;
-                    if (value == null || value == string.Empty) continue;
-                    meta.fileNode.SetDictObject(key, value);
-                    fullFileName = meta.findFullFileName(file_name);
-                    meta.addNode(key, value, fullFileName);     
+                    if (value == null || value == string.Empty) {  // delete node
+                        //if (meta.fileNode.fileMetaDict.Keys.Contains(key))
+                        //{
+                        //    List<string> ls = meta.fileNode.fileMetaDict[key];
+                        //    if (j < ls.Count)
+                        //        Debug.WriteLine(ls[j]);
+                        //}
+                    } else {
+                   //     list.Add(value);
+
+                     
+
+                        if (meta.fileNode.SetDictObject(key, value)) {
+                            fullFileName = meta.findFullFileName(file_name);
+                            meta.addNode(key, value, fullFileName);
+                        
+                        };
+                    
+                    }
                 }
+               // newDict.Add(key, list);
             }
 
+
+         //   meta.fileNode.fileMetaDict = newDict;
             level1 = new List<string>(meta.fileNode.fileMetaDict.Keys);
             listBox1.DataSource = level1;
         }

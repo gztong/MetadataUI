@@ -3,6 +3,7 @@
   <metadatatype value="CalculationType" required="true">
     <metadatavalue value="Static">
       <file>aim_boundary_conditions\structural\topics\h_cht_insulated.dita</file>
+      <file>aim_boundary_conditions\structural\topics\c_cht_insulated.dita</file>
       <file>aim_boundary_conditions\structural\topics\t_cht_insulated.dita</file>
       <file>aim_boundary_conditions\structural\topics\h_flu_convection_radiation.dita</file>
       <file>aim_connections\topics\h_flu_region_interface.dita</file>
@@ -1333,6 +1334,7 @@
     </metadatavalue>
     <metadatavalue value="Fluid">
       <file>aim_boundary_conditions\structural\topics\h_cht_insulated.dita</file>
+      <file>aim_boundary_conditions\structural\topics\c_cht_insulated.dita</file>
       <file>aim_boundary_conditions\structural\topics\t_cht_insulated.dita</file>
       <file>aim_boundary_conditions\structural\topics\c_asm_temperature.dita</file>
       <file>aim_boundary_conditions\structural\topics\h_asm_temperature.dita</file>
@@ -2022,6 +2024,7 @@
     </metadatavalue>
     <metadatavalue value="Thermal">
       <file>aim_boundary_conditions\structural\topics\h_cht_insulated.dita</file>
+      <file>aim_boundary_conditions\structural\topics\c_cht_insulated.dita</file>
       <file>aim_boundary_conditions\structural\topics\t_cht_insulated.dita</file>
       <file>aim_boundary_conditions\structural\topics\c_asm_temperature.dita</file>
       <file>aim_boundary_conditions\structural\topics\h_asm_temperature.dita</file>
@@ -6510,6 +6513,7 @@
     </metadatavalue>
     <metadatavalue value="InsulatedBoundary">
       <file>aim_boundary_conditions\structural\topics\h_cht_insulated.dita</file>
+      <file>aim_boundary_conditions\structural\topics\c_cht_insulated.dita</file>
       <file>aim_boundary_conditions\structural\topics\t_cht_insulated.dita</file>
     </metadatavalue>
     <metadatavalue value="IntactFailureSurfaceConstant">

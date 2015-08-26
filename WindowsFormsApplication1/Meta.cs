@@ -142,6 +142,7 @@ namespace WindowsFormsApplication1
         }
 
 
+
         public void addNode(string level1, string level2, string filename)
         {
             XmlNode newNode = doc.CreateElement("file");
@@ -230,10 +231,10 @@ namespace WindowsFormsApplication1
             fileMetaDict = new Dictionary<string,List<string>>();
         }
 
-        public void SetDictObject(string key1, string val){
+        public bool SetDictObject(string key1, string val){
             if (fileMetaDict.ContainsKey(key1))
             {
-                if (fileMetaDict[key1].Contains(val)) return;
+                if (fileMetaDict[key1].Contains(val)) return false;
                 fileMetaDict[key1].Add(val);
             }
             else
@@ -242,6 +243,7 @@ namespace WindowsFormsApplication1
                 list.Add(val);
                 fileMetaDict.Add(key1, list);
             }
+            return true;
 
         }
 
