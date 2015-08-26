@@ -6,20 +6,27 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Xml;
 using System.Diagnostics;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
     class Meta
     {
-         XmlDocument doc = new XmlDocument();
-         DataSet ds = new DataSet();
+        XmlDocument doc = new XmlDocument();
+        DataSet ds = new DataSet();
         public Dictionary<string, List<string>> metaDict = new Dictionary<string, List<string>>();
         public MetaFileNode fileNode = null;
+        string fullFileName;
 
+        public string findFullFileName(string filename)
+        {
 
+            return fullFileName;
+        }
         //override constructor, init from XML file path
         public Meta(string path)
         {
+            Debug.WriteLine("path ~~~~~~~~~~~~~~~~~~~~" + path);
             ds.ReadXml(path);
             doc.Load(path);
             loadMeta();
@@ -47,11 +54,60 @@ namespace WindowsFormsApplication1
              }
         }
 
-        public Dictionary<string, List<string>> lookup(string filename)
-        {
+        public Dictionary<string, List<string>> lookup(string filename, bool isfullpath) {
+            if (isfullpath) return lookup(filename);
+
+
             filename = filename.Trim();
             XmlNodeList metadataFileNodes = doc.SelectNodes("/metadatatable/metadatatype/metadatavalue/file");
-       
+     
+
+            foreach (XmlNode metadataFileNode in metadataFileNodes)
+            {
+                //check if the file exsist
+                string full_path = metadataFileNode.InnerText;
+                string file_name = full_path.Split(Path.DirectorySeparatorChar).Last();
+
+                if (file_name.Equals(filename))
+                {
+                    fullFileName = full_path;
+                    Debug.WriteLine("found file ~~~~~~~~~~~~~~~~~ " + filename);
+                    fileNode = new MetaFileNode(filename);
+                    break;
+                }
+            }
+
+            //if exsist
+            if (fileNode != null)
+            {
+                foreach (XmlNode metadataFileNode in metadataFileNodes)
+                {
+                    string full_path = metadataFileNode.InnerText;
+                    string file_name = full_path.Split(Path.DirectorySeparatorChar).Last();
+
+                    if (file_name.Equals(filename))
+                    {
+                        string key1 = metadataFileNode.ParentNode.ParentNode.Attributes.GetNamedItem("value").Value;
+                        string val = metadataFileNode.ParentNode.Attributes.GetNamedItem("value").Value;
+                        fileNode.SetDictObject(key1, val);
+
+                    }
+                }
+                printDict(fileNode.fileMetaDict);
+                return fileNode.fileMetaDict;
+            } //end  if (fileNode != null), fileNode built successfully
+
+
+            return null;
+
+        }
+
+        public Dictionary<string, List<string>> lookup(string filename)
+        {
+
+            filename = filename.Trim();
+            XmlNodeList metadataFileNodes = doc.SelectNodes("/metadatatable/metadatatype/metadatavalue/file");
+            
             foreach (XmlNode metadataFileNode in metadataFileNodes)
             {
                 //check if the file exsist
@@ -197,7 +253,7 @@ namespace WindowsFormsApplication1
             }
         
         }
-       
+
 
     }
 }

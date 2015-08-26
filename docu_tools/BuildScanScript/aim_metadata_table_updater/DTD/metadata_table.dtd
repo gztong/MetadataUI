@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    Metadata Table DTD                                -->
+<!--  VERSION:   1.0                                               -->
+<!--  DATE:      9/3/2014                                          -->
+<!-- ============================================================= -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//ANSYS//DTD Metadata Table//EN"
+      Delivered as file "metadata_table.dtd"                        -->
+
+<!-- ============================================================= -->
+<!--                   ELEMENT NAME ENTITIES                       -->
+<!-- ============================================================= -->
+
+ 
+<!ENTITY % metadatatable     "metadatatable"                         >
+<!ENTITY % metadatatype      "metadatatype"                          >
+<!ENTITY % metadatavalue     "metadatavalue"                         >
+<!ENTITY % file              "file"                                  >
+<!ENTITY % link              "link"                                  >
+
+ 
+<!-- ============================================================= -->
+<!--                    ELEMENT DECLARATIONS                       -->
+<!-- ============================================================= -->
+
+ 
+<!--                    LONG NAME: Metadata Table                   -->
+<!ENTITY % metadatatable.content
+                       "(%metadatatype;)+"
+>
+<!ENTITY % metadatatable.attributes
+              "outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT metadatatable    %metadatatable.content;>
+<!ATTLIST metadatatable    %metadatatable.attributes;>
+
+
+
+<!--                    LONG NAME: Metadata Type                 -->
+<!ENTITY % metadatatype.content
+                       "(%metadatavalue;)*"
+>
+<!ENTITY % metadatatype.attributes
+             "value 
+                        CDATA 
+                                  #IMPLIED
+			  required 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT metadatatype    %metadatatype.content;>
+<!ATTLIST metadatatype    %metadatatype.attributes;>
+
+
+
+<!--                    LONG NAME: Metadata Value         -->
+<!ENTITY % metadatavalue.content
+                       "(%file;|%link;)*"
+>
+<!ENTITY % metadatavalue.attributes
+             "value 
+                        CDATA 
+                                  #IMPLIED
+			  required 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT metadatavalue    %metadatavalue.content;>
+<!ATTLIST metadatavalue    %metadatavalue.attributes;>
+
+<!--                    LONG NAME: Metadata file         -->
+<!ENTITY % file.content
+                       "(#PCDATA)*"
+>
+<!ENTITY % file.attributes
+             "type 
+                        CDATA 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED	  
+             priority 
+                        CDATA 
+                                  #IMPLIED
+             title 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT file    %file.content;>
+<!ATTLIST file    %file.attributes;>
+
+<!--                    LONG NAME: web link         -->
+<!ENTITY % link.content
+                       "(#PCDATA)*"
+>
+<!ENTITY % link.attributes
+             "type 
+                        CDATA 
+                                  #IMPLIED
+             title 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT link    %link.content;>
+<!ATTLIST link    %link.attributes;>
+ 
+ 
+ <!-- ============================================================= -->
+<!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+<!-- ============================================================= -->
+ 
+<!ATTLIST metadatatable		class CDATA "+ metadatatable/metadatatable " >
+<!ATTLIST metadatavalue		class CDATA "+ metadatatable/metadatavalue " >
+<!ATTLIST metadatatype		class CDATA "+ metadatavalue/metadatatype "  >
+<!ATTLIST file				class CDATA "+ metadatatype/file "           >
+<!ATTLIST link				class CDATA "+ metadatatype/link "           >
+ 
+ 
+
+<!-- ================== End DITA ANSYS Custom Domain =========== -->
